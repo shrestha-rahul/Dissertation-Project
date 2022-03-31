@@ -4,7 +4,7 @@ import React from "react";
 import Logo from "../assets/Logo.svg";
 import MenuItem from "./menuItem.js";
 import SideBarIlu from "../assets/sidebar_ilu.svg";
-import { link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 // import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 // import LoginOutlinedIcon from "@mui/icons-material/LoginOutlined";
@@ -36,16 +36,14 @@ const Sidebar = () => {
           {/* UL Links */}
           <ul className="">
             {/* Home Page */}
+
             <a className="text-xl mb-6  font-[Klavika-Medium]">
               <MenuItem Icon={HomeOutlinedIcon} Title="Home" />
             </a>
 
             {/* Stock */}
 
-            <a
-              href="`{stocks}`"
-              className="text-xl mb-6  font-[Klavika-Medium]"
-            >
+            <a className="text-xl mb-6  font-[Klavika-Medium]">
               <MenuItem Icon={BarChartOutlinedIcon} Title="Investment" />
             </a>
 
