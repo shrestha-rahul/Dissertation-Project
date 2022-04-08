@@ -5,7 +5,7 @@ import logoTwo from "../assets/LogoTwo.svg";
 function Add_Trans() {
   return (
     <>
-      <div className="bg-white top-[0] bottom-[0] right-[0] left-[0] z-50">
+      <div className="bg-white top-[0] bottom-[0] right-[0] left-[0] z-50 font-[Klavika-Medium]">
         <div className="fixed p-6 items-center justify-center bg-white top-[50px] bottom-[50px] right-[50px] left-[50px] rounded-[50px] border-2 border-gray-800 space-y-4 bg-[url('https://i.ibb.co/28Z2fjN/bg-add.png')] bg-no-repeat bg-bottom">
           <div className="flex justify-center items-center space-x-2">
             <img src={logoTwo} alt="" className="w-[100px]" />

@@ -33,7 +33,7 @@ function Home() {
   return (
     <>
       {/* Main Content */}
-      <div className="w-[87%] py-4">
+      <div className="w-[87%] py-4 font-[Klavika-Medium]">
         <div className="p-4 h-full flex  relative">
           <div className="border-2 border-gray-800 w-full h-full flex p-4 space-x-4">
             {/* Left Section */}

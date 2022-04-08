@@ -20,7 +20,7 @@ function App() {
         <div className="w-[13%]">
           <Sidebar />
         </div>
-        {/* Endof Sidebar */}
+        {/* End Sidebar */}
 
         {/* Home Page */}
         {/* <Home /> */}
@@ -35,7 +35,7 @@ function App() {
         {/* <Add_Budget /> */}
 
         {/* Add Bill Reminder Page */}
-        <Add_Reminder />
+        {/* <Add_Reminder /> */}
 
         {/* End of Main Container */}
       </div>

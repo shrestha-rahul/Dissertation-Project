@@ -21,7 +21,7 @@ function Stock() {
   return (
     <>
       {/* Main Content */}
-      <div className="w-[87%] py-4">
+      <div className="w-[87%] py-4 font-[Klavika-Medium]">
         <div className="p-4 min-h-screen flex ">
           <div className="border-2 border-gray-800 w-full min-h-full flex p-4 space-x-4">
             {/* Left Section */}
