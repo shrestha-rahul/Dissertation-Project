@@ -1,0 +1,11 @@
+Dissertation Task Procedure
+
+Complete Technical Indicators (3)-with written draft.
+
+Classification Machine Learning
+With Hyperparameter Tuning
+
+Regresssion Machine Learning
+With Hyperparameter Tuning
+
+Complettion of the App
