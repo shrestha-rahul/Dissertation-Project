@@ -1,0 +1,35 @@
+Introduction:
+* Debt problesm
+* Why this needs to be fixed (suicide/ crimes)
+* Budget Application
+* Why there needs to be budget application
+* Stock Investment
+* Why people need to invest in stocks
+* Predicting Stocks Prices and Signals, why that is helpful and required
+
+
+Literature Review
+* Debt, Gambling
+* Budget Application
+* whats been done before, the results of that , the outcomes
+* Stock Invesstment
+* whats been done for, models, regressor, classifiers, the results, the outcomes, the limitation
+
+
+Methodology: ????
+* How the application will be tested, 
+* how the machine leaarning will be tested
+* Ethics?
+
+* Machine Learning Si
+* Regresion Models, the 3 models, dataset, EDA,  training the models, results, which one did best
+* Classifcation Model, technical indicators, target variable, , eda, training the modes, the results, which one did best,
+
+
+Design & Implementation
+* Wireframe Desings
+* Mock Ups
+* The complete application-whats finished, whats not
+
+Resuts
+* I guess the completed app 
