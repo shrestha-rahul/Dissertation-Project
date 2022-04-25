@@ -23,7 +23,7 @@ function App() {
         {/* End Sidebar */}
 
         {/* Home Page */}
-        {/* <Home /> */}
+        <Home />
 
         {/* Stocks Page */}
         {/* <Stock /> */}

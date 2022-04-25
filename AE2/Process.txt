@@ -1,11 +1,31 @@
 Dissertation Task Procedure
 
-Complete Technical Indicators (3)-with written draft.
 
-Classification Machine Learning
-With Hyperparameter Tuning
+Today Task: 25/04/2022.
+Fiverr on deployment.-Done
+Email Darren regarding meeting date.-Done
+Complete paragrah on data preparation and scaling- Done
 
-Regresssion Machine Learning
-With Hyperparameter Tuning
+Prepare data for classification model. 
+Complete Prediction using LSTM, both univariate and multivariate.
+Calculate different result metrics.
+Complete paragraph decsribing what LSTM is.
+Move on to hyperparameter tuning.
 
-Complettion of the App
+Understand the data is prepped for models.
+------------------------------------------------------------------
+Left to do:
+
+
+Prediction using regression models: univariate and multivariate.
+Prediction with hyperparameter tuning for both models.
+
+
+Predicition using Classification Models.
+Improve Model using Hyperparameter tuning.
+
+Look into ethics.
+
+Quickly Host this app with Streamlit.
+
+Complettion of the App.

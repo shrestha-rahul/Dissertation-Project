@@ -21,7 +21,7 @@ Methodology: ????
 * how the machine leaarning will be tested
 * Ethics?
 
-* Machine Learning Si
+* Machine Learning
 * Regresion Models, the 3 models, dataset, EDA,  training the models, results, which one did best
 * Classifcation Model, technical indicators, target variable, , eda, training the modes, the results, which one did best,
 
