@@ -1,31 +1,46 @@
 Dissertation Task Procedure
 
 
-Today Task: 25/04/2022.
-Fiverr on deployment.-Done
-Email Darren regarding meeting date.-Done
-Complete paragrah on data preparation and scaling- Done
+Today Task: 29/04/2022.
 
-Prepare data for classification model. 
-Complete Prediction using LSTM, both univariate and multivariate.
-Calculate different result metrics.
+Configure SMOTE- Explain the SMOTE parameters (too much noise if datasest is over populated).
+
+Append Results of All Models
+
+Hyperparamter Tune Top 2 Models
+
+Document Results of Tuning
+
+Explain each Model
+
+Explain the result metrics and why they were chosen. Especially F1.
+
+Deploy this Classifcation to Netlify.
+
+MOVE ON TO REGRESSION MODEL AFTER
+
+
 Complete paragraph decsribing what LSTM is.
-Move on to hyperparameter tuning.
+Complete Prediction using LSTM, both univariate and multivariate.
 
-Understand the data is prepped for models.
 ------------------------------------------------------------------
 Left to do:
 
+Complete Ethics
 
-Prediction using regression models: univariate and multivariate.
-Prediction with hyperparameter tuning for both models.
+Regression Models: Univariate + Multivariate
+
+Regressional Model: Hyperparameter
+
+Streamlit Deploy of Machine Learning
+
+Introduction
+
+Literature Review
+
+Proejct Requirements.
 
 
-Predicition using Classification Models.
-Improve Model using Hyperparameter tuning.
+2270
 
-Look into ethics.
 
-Quickly Host this app with Streamlit.
-
-Complettion of the App.

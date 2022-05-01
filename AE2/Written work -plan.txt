@@ -1,5 +1,5 @@
 Introduction:
-* Debt problesm
+* Debt problems
 * Why this needs to be fixed (suicide/ crimes)
 * Budget Application
 * Why there needs to be budget application
@@ -16,6 +16,13 @@ Literature Review
 * whats been done for, models, regressor, classifiers, the results, the outcomes, the limitation
 
 
+Design & Implementation
+* Wireframe Desings
+* Mock Ups
+* The complete application-whats finished, whats not
+* Project requirements
+* Even though the machine learning is integrated, users are able explore through running streamlit
+
 Methodology: ????
 * How the application will be tested, 
 * how the machine leaarning will be tested
@@ -23,13 +30,10 @@ Methodology: ????
 
 * Machine Learning
 * Regresion Models, the 3 models, dataset, EDA,  training the models, results, which one did best
-* Classifcation Model, technical indicators, target variable, , eda, training the modes, the results, which one did best,
+* Classifcation Model, technical indicators, target variable, , eda, training the modes, the results, whic h one did best,
 
 
-Design & Implementation
-* Wireframe Desings
-* Mock Ups
-* The complete application-whats finished, whats not
+
 
 Resuts
 * I guess the completed app 
