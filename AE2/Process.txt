@@ -1,23 +1,14 @@
 Dissertation Task Procedure
 
 
-Today Task: 29/04/2022.
+Explain paragraphs regarding hyperparameter tuning.
 
-Configure SMOTE- Explain the SMOTE parameters (too much noise if datasest is over populated).
+Hyperparameter Tune Random Forest
 
-Append Results of All Models
+Document Tuning Process.
 
-Hyperparamter Tune Top 2 Models
+Deploy the Classifcation to Netlify.
 
-Document Results of Tuning
-
-Explain each Model
-
-Explain the result metrics and why they were chosen. Especially F1.
-
-Deploy this Classifcation to Netlify.
-
-MOVE ON TO REGRESSION MODEL AFTER
 
 
 Complete paragraph decsribing what LSTM is.
