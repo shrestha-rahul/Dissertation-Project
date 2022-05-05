@@ -9,7 +9,7 @@ import Add_Trans from "./pages/Add_Trans";
 import Add_Budget from "./pages/Add_Budget";
 import Add_Reminder from "./pages/Add_Reminder.js";
 import Home from "./Home";
-import Registeration from "./pages/Rgisteration";
+import Registration from "./pages/Registration";
 import Login from "./pages/Login";
 import "./index.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -31,7 +31,7 @@ function App() {
             <Route path="/add_transaction" element={<Add_Trans />} />
             <Route path="/add_budget" element={<Add_Budget />} />
             <Route path="/add_reminder" element={<Add_Reminder />} />
-            <Route path="/register" element={<Registeration />} />
+            <Route path="/register" element={<Registration />} />
           </Routes>
         </BrowserRouter>
 
