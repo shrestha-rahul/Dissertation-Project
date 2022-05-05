@@ -3,7 +3,7 @@ import React from "react";
 import changeProfile from "../assets/changeprofile.svg";
 import profilePic from "../assets/profile.jpg";
 
-function ProfileAvatar() {
+function ProfileAvatar({ name }) {
   return (
     <div>
       <div className="py-2 flex flex-col justify-center items-center">
@@ -13,9 +13,7 @@ function ProfileAvatar() {
             <img src={changeProfile} alt="" />
           </div>
         </div>
-        <span className="text-xl font-bold text-center mt-1">
-          Rahul Shrestha
-        </span>
+        <span className="text-xl font-bold text-center mt-1">{name}</span>
       </div>
     </div>
   );

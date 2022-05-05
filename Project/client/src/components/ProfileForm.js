@@ -1,14 +1,14 @@
 import React from "react";
 import ProfileFormItem from "./ProfileFormItem";
 
-function ProfileForm() {
+function ProfileForm({ name, DOB, email, phone }) {
   return (
     <div className="w-full pb-6 border-b-2 border-[#161837]">
       <form action="" className="space-y-2">
-        <ProfileFormItem title="Name" />
-        <ProfileFormItem title="D.O.B" />
-        <ProfileFormItem title="Phone" />
-        <ProfileFormItem title="Adress" />
+        <ProfileFormItem value={name} title="Name" />
+        <ProfileFormItem value={DOB} title="D.O.B" />
+        <ProfileFormItem value={phone} title="Phone" />
+        <ProfileFormItem value={email} title="Adress" />
       </form>
     </div>
   );

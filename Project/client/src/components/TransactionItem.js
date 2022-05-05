@@ -24,7 +24,11 @@ function TransactionItem({
         </div>
         <div className="text-right">
           <span className={`${className} ${textColor}`}>
-            {dayRemaining ? dayRemaining : price}
+            {dayRemaining
+              ? Number(dayRemaining.slice(-2)) -
+                new Date().getDate() +
+                " days remaining"
+              : price}
           </span>
           <p className="font-xs italic font-light">{date}</p>
         </div>

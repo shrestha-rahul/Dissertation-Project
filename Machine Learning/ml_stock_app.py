@@ -34,6 +34,7 @@ from sklearn import tree
 #Model Result Analysis
 from sklearn.metrics import accuracy_score, confusion_matrix, roc_auc_score, ConfusionMatrixDisplay, precision_score, recall_score, f1_score, classification_report, roc_curve, plot_roc_curve, auc, precision_recall_curve, plot_precision_recall_curve, average_precision_score
 from sklearn.model_selection import cross_val_score
+from sklearn.metrics import mean_squared_error,r2_score, mean_absolute_error,mean_squared_log_error
 
 #Streamlit
 import streamlit as st
@@ -46,7 +47,7 @@ END = date.today().strftime("%Y-%m-%d")
 
 
 #Streamlit 
-st.title('Stock Trading Classifier')
+st.title('Machine Learning: Stock Rregresor & Classifier')
 st.header('Please Enter A Stock Ticker')
 stock_user_input = st.text_input(' ', 'HSBC')
 
@@ -60,6 +61,7 @@ if st.checkbox("Want to Enter A Custom Start Date for Dataset?"):
   
 #Scraping Dataset from Yahoo Finance
 stock_dataset = data.DataReader(stock_user_input, 'yahoo', START, END)
+
 
 
 #Adding Technical Indicators to the dataset
@@ -242,6 +244,7 @@ if st.checkbox("Show Stock Dataset Information...."):
 #Exploratory Data Analysis
 if st.checkbox("Show Stock Data Analysis"):
 
+
   #Reshaping DataFrame so Date is a proper column
   stock_dataset = stock_dataset.reset_index()
 
@@ -274,7 +277,7 @@ if st.checkbox("Show Stock Data Analysis"):
   st.plotly_chart(fig2)
 
   #Returns Graph
-  stock_dataset['Daily Return'] = stock_dataset['Adj Close'].pct_change()
+  stock_dataset['Daily Return'] = stock_dataset['Close'].pct_change()
   st.subheader('Returns of the Stock')
   returns = plt.Figure()
   returns.layout.update(title_text="Returns of Stock", xaxis_rangeslider_visible=True)
@@ -284,9 +287,10 @@ if st.checkbox("Show Stock Data Analysis"):
 
 #Technical Analysis
 if st.checkbox("Show Technical Analysis"):
+
   
   #Plotting Graph
-  fig3 = plts.figure(figsize=(20,10))
+  fig3 = plts.figure(figsize=(20,12))
   plts.title(' Stochastic Oscillator Indicator')
   plts.plot(stock_dataset['%K'], label='%K', c='black')
   plts.plot(stock_dataset['%D'], label='%D',  c='yellow')
@@ -298,7 +302,6 @@ if st.checkbox("Show Technical Analysis"):
   #Plotting RSI Graph
   fig4 = plts.figure(figsize=(20,10))
   plts.title(' RSI Indicator')
-  plts.xlabel('Months')
   plts.plot(stock_dataset['RSI'], label='RSI')
   plts.axhline(30, linestyle='--', color="r")
   plts.axhline(70, linestyle="--", color="r")
@@ -308,8 +311,8 @@ if st.checkbox("Show Technical Analysis"):
   #Plotting the  Bollinger Bands
   fig5 = plts.figure(figsize=(20,10))
   plts.title(' Bollinger Bands Indicator')
-  plts.xlabel('Months')
-  plts.ylabel('Closing Prices')
+  plts.xlabel('Years')
+  plts.ylabel('Price')
   plts.plot(closing_prices, label='Price')
   plts.plot(bollinger_upper, label='Upper Band', c='g')
   plts.plot(bollinger_lower, label='Lower Band', c='r')
@@ -320,7 +323,6 @@ if st.checkbox("Show Technical Analysis"):
   #Plotting the MACD
   fig6 = plts.figure(figsize=(20,10))
   plts.title(' MACD Indicator')
-  plts.xlabel('Months')
   plts.plot(stock_dataset['MACD'],  label='MACD', color='g')
   plts.plot(stock_dataset['Signal'], label='Signal', color='r')
   plts.legend()
@@ -328,7 +330,7 @@ if st.checkbox("Show Technical Analysis"):
 
 
 #Modelling
-if st.checkbox("Model Performance"):
+if st.checkbox("Classifier Model Performance"):
   #Model
   #Loading Model
   rf_tuned_model = 'rf_tuned_model.sav'
@@ -342,41 +344,232 @@ if st.checkbox("Model Performance"):
   st.write("Accuracy Score :", accuracy)
 
   #Precision
-  test_precision = precision_score(y_test, y_pred,  average='macro')
-  st.write("Precision Score :", test_precision) 
+  precision = precision_score(y_test, y_pred,  average='macro')
+  st.write("Precision Score :", precision) 
+
   #Recall
-  test_recall = recall_score(y_test, y_pred,  average='macro')
-  st.write("Recall Score : ", test_recall)
+  recall = recall_score(y_test, y_pred,  average='macro')
+  st.write("Recall Score : ", recall)
   #F1 Score
-  test_f1 = f1_score(y_test, y_pred,average='macro')
-  st.write("F1 Score: ", test_f1)
+  f1 = f1_score(y_test, y_pred,average='macro')
+  st.write("F1 Score: ", recall)
+
+    
 
 
 
+#LSTM Model
+def lstm_model():
+    st.header('Long Short-Term Memory (LSTM) Model Results:')
+
+    
+    #Creating a new dataframe which contains only the 'Close'
+    #Converting DataFrame into Numpy Array
+    close_data = stock_dataset.filter(['Close'])
+    close_dataset = close_data.values
+
+ 
+
+    #Splitting the dataset into training and test sets 70/30
+    training_data_len = int(np.ceil( len(close_dataset) * .7 ))
+
+
+    #Normalize/Scale the data
+    scaler = MinMaxScaler(feature_range=(0,1))
+    scaled_data = scaler.fit_transform(close_dataset)
+
+    #Splitting Scaled Data into Training and Test Sets
+    # Create the training dataset
+    training_data = scaled_data[0:int(training_data_len), :]
+
+    #Splitting into X-train and y-train
+    x_train =  []
+    y_train = []
+
+    for i in range(100, len(training_data)):
+        x_train.append(training_data[i-100:i, 0])
+        y_train.append(training_data[i,0])
+
+
+    #Converting the X_Train and Y_Train to Numpy Array in-order to train the LSTM Model
+    x_train, y_train = np.array(x_train), np.array(y_train)
+
+    #Reshaping the X_Train as LTSM Model expects 3D dimensional array and it is currently 2D
+    x_train = np.reshape(x_train, (x_train.shape[0], x_train.shape[1], 1))
+        
+    #Loading Model
+    model = load_model('lstm_model.h5')
+        
+
+    #Testing
+    #Creating Test Data set
+    test_data = scaled_data[training_data_len - 100:, :]
+
+    #X_Test and Y_Test
+    x_test = []
+    y_test = close_dataset[training_data_len:, :]
+    for i in range(100, len(test_data)):
+        x_test.append(test_data[i-100:i, 0])
+
+
+    #Converting the data into numpy array
+    x_test, y_test = np.array(x_test), np.array(y_test)
+
+    #Reshaping the data so it is in 3d
+    x_test = np.reshape(x_test, (x_test.shape[0], x_test.shape[1],1))
+
+    #Using the Models to make Predictions
+    y_predictions = model.predict(x_test)
+    y_predictions = scaler.inverse_transform(y_predictions)
+
+    
+    #Results
+    mae =mean_absolute_error(y_predictions,y_test)
+    mse= mean_squared_error(y_predictions,y_test)
+    rmse = np.sqrt(mean_squared_error(y_predictions,y_test))
+    r2 = r2_score(y_predictions,y_test)
+
+    rmse_str = f"""
+    <style>
+    p.a {{
+    font: bold 20px Courier ;
+    }}
+    </style>
+    <p class="a">RMSE:{rmse}</p>
+    """
+    # 
+    # 
+    mse_str = f"""
+    <style>
+    p.a {{
+    font: bold 20px Courier green;
+    }}
+    </style>
+    <p class="a">MSE:{mse}</p>
+    """
+    # 
+    # 
+    mae_str = f"""
+    <style>
+    p.a {{
+    font:bold 20px Courier;
+    }}
+    </style>
+    <p class="a">MAE:{mae}</p>
+    """
+    # 
+    # 
+    r2_str = f"""
+    <style>
+    p.a {{
+    font: bold 20px Courier;
+    }}
+    </style>
+    <p class="a">R2:{r2}</p>
+    """
+
+    st.markdown(rmse_str, unsafe_allow_html=True)
+    st.markdown(mse_str, unsafe_allow_html=True)
+    st.markdown(mae_str, unsafe_allow_html=True)
+    st.markdown(r2_str, unsafe_allow_html=True)
+
+ 
+    # st.subheader('The Root Mean Squared Error')
+    # st.subheader(rmse)
 
 
 
+    #Plotting the data
+    train = close_data[:training_data_len]
+    original = close_data[training_data_len:]
+    original['Predictions'] = y_predictions
+
+    # st.subheader('Visualization')
+    # fig4 = plt.Figure()
+    # fig4.layout.update(title_text="Predictions", xaxis_rangeslider_visible=True)
+    # fig4.update_layout(autosize=False, width=1000, height=800,)
+    # fig4.add_trace(plt.Scatter(x=stock_dataset['Date'], y=original['Close'], name="Original"))
+    # fig4.add_trace(plt.Scatter(x=stock_dataset['Date'], y=original['Predictions'], name="Predictions"))
+    # st.plotly_chart(fig4)
 
 
+    
+    # Plotting the data
+    fig5 = plts.figure(figsize=(20,12))
+    plts.title('Model')
+    plts.ylabel('Price')
+    plts.plot(train['Close'], color="black")
+    plts.plot(original[['Close', 'Predictions']])
+    plts.legend(['Train', 'Original', 'Predictions'], loc='lower right')
+    st.pyplot(fig5)
 
+    st.subheader("Predictions Table")
+    st.write(original)
+    # End of LSTM Model Function
+
+
+#ARIMA Model
+def arima_model():
+  st.header('AutoRegressive Integrated Moving Average (ARIMA) Model')
+
+  #Spltting Data into Train and Test Data
+  train_data=stock_dataset.iloc[:int(stock_dataset.shape[0]*0.80)]
+  test_data=stock_dataset.iloc[int(stock_dataset.shape[0]*0.80):]
+  prediction=test_data.copy()
+
+  #Model Training
+  model= auto_arima(train_data["Close"],trace=True, error_action='ignore', start_p=1,start_q=1,max_p=3,max_q=3,
+                suppress_warnings=True,stepwise=False,seasonal=False)
+  model.fit(train_data["Close"])
+
+  #Forecasting 
+  y_prediction=model.predict(len(test_data))
+  prediction["Predictions"]=y_prediction
+  mae =mean_absolute_error(prediction["Close"],prediction["Predictions"])
+  mse= mean_squared_error(prediction["Close"],prediction["Predictions"])
+  rmse = np.sqrt(mean_squared_error(prediction["Close"],prediction["Predictions"]))
+  r2 = r2_score(prediction["Close"],prediction["Predictions"])
+
+  #RMSE
+  st.write("RMSE:", rmse)
+  st.write("MSE:", mse)
+  st.write("MAE:", mae)
+  st.write("R2:", r2)
+
+  # Visualization
+  st.subheader('Visualization')
+  fig11 = plt.Figure()
+  fig11.layout.update(title_text="Interactive Graph: ARIMA", xaxis_rangeslider_visible=True)
+  fig11.update_layout(autosize=False, width=1000, height=800,)
+  fig11.add_trace(plt.Scatter(x=train_data.index, y=train_data["Close"], mode='lines',name="Train"))
+  fig11.add_trace(plt.Scatter(x=test_data.index, y=test_data["Close"], mode='lines',name="Original",))
+  fig11.add_trace(plt.Scatter(x=test_data.index, y=prediction["Predictions"], mode='lines',name="Prediction",))
+  st.plotly_chart(fig11)
 
   
+  fig12 = plts.figure(figsize=(20,12))
+  plts.plot(train_data["Close"], color='Black', label='Train')
+  plts.plot(test_data["Close"], color='blue', label='Original')
+  plts.plot(prediction["Predictions"], color='Red', label='Prediction')
+  plts.title('ARIMAL MODEL')
+  plts.ylabel('Stock Price')
+  plts.legend()
+  st.pyplot(fig12)
 
-# #Model Choice Options
-# models_list = ['NONE','LSTM', 'Linear Regression', 'Decision Tree', 'ARIMA']
-# models = pd.DataFrame(models_list)
-# st.subheader("Model Selection")
-# model_choice = st.selectbox('Please choose a model from the list: ',models_list)
+  st.subheader("Predictions Table")
+  prediction.drop(columns=['High', 'Low', 'Open', 'Volume', '%K', '%D', 'RSI', 'Bollinger_Upper', 'Bollinger_Lower', 'MACD', 'Signal', 'Recommender' ], inplace=True)
+  st.write(prediction)
 
-# if model_choice == 'NONE':
-#   st.write("NO Models Selected!")
-# elif model_choice == 'LSTM':
-#   lstm_model()
-# elif model_choice == 'Linear Regression':
-#   lr_model()
-# elif model_choice == 'Decision Tree':
-#   tree_model()
-# elif model_choice == 'ARIMA':
-#   arima_model()
+#Modelling
+if st.checkbox("Regression Model Performance"):
+    lstm_model()
+    arima_model()
+    
+
+
+
+
+
+
 
 

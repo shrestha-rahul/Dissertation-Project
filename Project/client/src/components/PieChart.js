@@ -1,11 +1,20 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { PieChart, Pie, Sector, Cell, ResponsiveContainer } from "recharts";
+import axios from "axios";
+
 function PieChartt() {
-  const data = [
-    { name: "Group A", value: 400 },
-    { name: "Group B", value: 300 },
-    { name: "Group C", value: 1000 },
-  ];
+  const [BudgetData, setBudgetData] = useState([]);
+
+  useEffect(() => {
+    axios.get("http://127.0.0.1:5000/get_budgets").then((res) => {
+      setBudgetData(res.data);
+    });
+  }, []);
+  // const data = [
+  //   { name: "Group A", value: 400 },
+  //   { name: "Group B", value: 300 },
+  //   { name: "Group C", value: 1000 },
+  // ];
   const COLORS = ["#31BACC", "#FF715B", "#161837"];
   return (
     <div className="w-[40%] ">
@@ -13,14 +22,14 @@ function PieChartt() {
         <ResponsiveContainer>
           <PieChart>
             <Pie
-              data={data}
+              data={BudgetData}
               innerRadius={60}
               outerRadius={70}
               fill="#8884d8"
               paddingAngle={5}
-              dataKey="value"
+              dataKey="amount"
             >
-              {data.map((entry, index) => (
+              {BudgetData.map((entry, index) => (
                 <Cell
                   key={`cell-${index}`}
                   fill={COLORS[index % COLORS.length]}

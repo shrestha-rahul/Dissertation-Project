@@ -3,27 +3,37 @@
 
 // Components
 import Sidebar from "./components/Sidebar";
-import Home from "./Home";
+
 import Stock from "./Stock";
 import Add_Trans from "./pages/Add_Trans";
 import Add_Budget from "./pages/Add_Budget";
 import Add_Reminder from "./pages/Add_Reminder.js";
+import Home from "./Home";
+import Registeration from "./pages/Rgisteration";
+import Login from "./pages/Login";
 import "./index.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
     <>
-      {/* Main Container */}
-      <div className="flex bg-[url('https://i.ibb.co/ZY2ZMrF/background.jpg')]">
-        <title>Dashboard</title>
-        {/* Sidebar */}
-        <div className="w-[13%]">
-          <Sidebar />
-        </div>
+      <div className="flex h-screen bg-[url('https://i.ibb.co/ZY2ZMrF/background.jpg')]">
+        {/* Main Container */}
+
         {/* End Sidebar */}
 
         {/* Home Page */}
-        <Home />
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Login />} />
+            <Route path="/home" element={<Home />} />
+            <Route path="/stock" element={<Stock />} />
+            <Route path="/add_transaction" element={<Add_Trans />} />
+            <Route path="/add_budget" element={<Add_Budget />} />
+            <Route path="/add_reminder" element={<Add_Reminder />} />
+            <Route path="/register" element={<Registeration />} />
+          </Routes>
+        </BrowserRouter>
 
         {/* Stocks Page */}
         {/* <Stock /> */}

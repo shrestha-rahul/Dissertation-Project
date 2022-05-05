@@ -3,7 +3,7 @@ import React from "react";
 // Image & Icons
 import changeProfile from "../assets/changeprofile.svg";
 
-function ProfileFormItem({ title }) {
+function ProfileFormItem({ title, value }) {
   return (
     <div className="flex space-x-2 justify-between items-center rounded-lg border-black border-t-[1px] border-b-[1px]">
       <div className="flex space-x-4">
@@ -13,6 +13,7 @@ function ProfileFormItem({ title }) {
         <input
           type="text"
           placeholder="enter your email"
+          value={value}
           className=" placeholder:text-slate-400 focus:outline-none focus:border-none bg-transparent"
         />
       </div>

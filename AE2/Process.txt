@@ -1,32 +1,34 @@
 Dissertation Task Procedure
+----------------------------------------------------------------
 
+* LSTM
 
+* Linear Regression
 
-Hyperparameter Tune Random Forest
+* Finish writing about regressional models
 
-Deploy the Classifcation to Netlify.
+* Deploy Regression Model to Netlify
 
+* Tidy up Streamlit
 
-Complete paragraph decsribing what LSTM is.
+* Fix Front End Routes
 
-Complete Prediction using LSTM, both univariate and multivariate.
 
 ------------------------------------------------------------------
 Left to do:
-
-Complete Ethics
-
-Regression Models: Univariate + Multivariate
-
-Regressional Model: Hyperparameter
-
-Streamlit Deploy of Machine Learning
+------------------------------------------------------------------
 
 Introduction
 
-Literature Review
+Design and Implementation
 
 Proejct Requirements.
 
-------------------------------------------------------------------------
+Literature Review
+
+Conclusion & Limitations.
+
+
+
+-------------------------------------------------------------------
 
