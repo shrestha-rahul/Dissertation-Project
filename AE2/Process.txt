@@ -1,17 +1,14 @@
 Dissertation Task Procedure
 
 
-Explain paragraphs regarding hyperparameter tuning.
 
 Hyperparameter Tune Random Forest
-
-Document Tuning Process.
 
 Deploy the Classifcation to Netlify.
 
 
-
 Complete paragraph decsribing what LSTM is.
+
 Complete Prediction using LSTM, both univariate and multivariate.
 
 ------------------------------------------------------------------
@@ -31,7 +28,5 @@ Literature Review
 
 Proejct Requirements.
 
-
-2270
-
+------------------------------------------------------------------------
 

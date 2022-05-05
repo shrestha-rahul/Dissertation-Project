@@ -9,11 +9,12 @@ Introduction:
 
 
 Literature Review
-* Debt, Gambling
-* Budget Application
-* whats been done before, the results of that , the outcomes
-* Stock Invesstment
-* whats been done for, models, regressor, classifiers, the results, the outcomes, the limitation
+•	Debt, Gambling, effects of debt
+•	Budget Application- what’s been done before, the results of that , the outcomes. 
+•	Did the budget application help ?
+•	Stock Investment- Do many people have knowledge regarding stock investment? Do many people invest in stocks? Why don’t people invest in stocks?
+•	Stock Prediction – Whats been done? What models ? The results, the outcomes and the limitations?
+
 
 
 Design & Implementation
