@@ -5,6 +5,7 @@ from flask_marshmallow import Marshmallow
 from flask_cors import CORS
 from application.models import *
 from application.routes import *
+from application import app
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = "secret key"

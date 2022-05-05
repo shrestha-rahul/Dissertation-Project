@@ -60,7 +60,7 @@ const Sidebar = () => {
 
             {/* Stock */}
 
-            <a className="text-xl mb-6  font-[Klavika-Medium]">
+            <a href="/stock " className="text-xl mb-6  font-[Klavika-Medium]">
               <MenuItem Icon={BarChartOutlinedIcon} Title="Investment" />
             </a>
 
