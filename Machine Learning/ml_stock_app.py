@@ -288,7 +288,11 @@ if st.checkbox("Show Stock Data Analysis"):
 #Technical Analysis
 if st.checkbox("Show Technical Analysis"):
 
-  
+  st.subheader('Stochastic Oscillator Indicator')
+  st.write('A `Buy` signal will be created when:')
+  st.write('The %K & % D value/line is below 20')
+  st.write('A `Sell` signal will be created when:')
+  st.write('The %K & % D value/line is above 80')
   #Plotting Graph
   fig3 = plts.figure(figsize=(20,12))
   plts.title(' Stochastic Oscillator Indicator')
@@ -299,6 +303,12 @@ if st.checkbox("Show Technical Analysis"):
   plts.legend()
   st.pyplot(fig3)
 
+  st.subheader('RSI Indicator') 
+  st.write('A `Buy` signal will be created when:')
+  st.write('The line crosses below 30')
+  st.write('A `Sell` signal will be created when:')
+  st.write('The line crosses above 70')
+
   #Plotting RSI Graph
   fig4 = plts.figure(figsize=(20,10))
   plts.title(' RSI Indicator')
@@ -308,6 +318,10 @@ if st.checkbox("Show Technical Analysis"):
   plts.legend()
   st.pyplot(fig4)
 
+
+  st.subheader('Bollinger Bands Indicator')
+  st.write('Buy signals = The price crosses below the Lower band.')
+  st.write('Sell signal = The price cross above the Upper band')
   #Plotting the  Bollinger Bands
   fig5 = plts.figure(figsize=(20,10))
   plts.title(' Bollinger Bands Indicator')
@@ -319,6 +333,10 @@ if st.checkbox("Show Technical Analysis"):
   plts.plot(bollinger_middle, label='Middle Band', c='y')
   plts.legend()
   st.pyplot(fig5)
+
+  st.subheader('MACD Indicator')
+  st.write("Buy Signal= MACD line cross ABOVE the signal line")
+  st.write("Sell Signal= MACD line cross below the signal line")
 
   #Plotting the MACD
   fig6 = plts.figure(figsize=(20,10))
