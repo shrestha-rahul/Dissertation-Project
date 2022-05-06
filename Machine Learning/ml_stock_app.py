@@ -289,9 +289,9 @@ if st.checkbox("Show Stock Data Analysis"):
 if st.checkbox("Show Technical Analysis"):
 
   st.subheader('Stochastic Oscillator Indicator')
-  st.write('A `Buy` signal will be created when:')
+  st.write('A `Buy` signal  when:')
   st.write('The %K & % D value/line is below 20')
-  st.write('A `Sell` signal will be created when:')
+  st.write('A `Sell` signal when:')
   st.write('The %K & % D value/line is above 80')
   #Plotting Graph
   fig3 = plts.figure(figsize=(20,12))
@@ -304,9 +304,9 @@ if st.checkbox("Show Technical Analysis"):
   st.pyplot(fig3)
 
   st.subheader('RSI Indicator') 
-  st.write('A `Buy` signal will be created when:')
+  st.write('A `Buy` signal when:')
   st.write('The line crosses below 30')
-  st.write('A `Sell` signal will be created when:')
+  st.write('A `Sell` signal when:')
   st.write('The line crosses above 70')
 
   #Plotting RSI Graph
