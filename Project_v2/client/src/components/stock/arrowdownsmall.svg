@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="26.132" height="28.742" viewBox="0 0 26.132 28.742">
+  <defs>
+    <filter id="Line_1" x="2.062" y="0" width="22.018" height="28.189" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Line_2" x="1.959" y="4.042" width="24.172" height="24.699" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur-2"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur-2"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Line_3" x="0" y="4.042" width="24.172" height="24.699" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur-3"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur-3"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="ARROW" transform="translate(15.025 14.635) rotate(180)">
+    <g transform="matrix(-1, 0, 0, -1, 15.03, 14.63)" filter="url(#Line_1)">
+      <line id="Line_1-2" data-name="Line 1" y1="6.182" x2="0.011" transform="translate(13.08 14.19) rotate(180)" fill="none" stroke="#ff4991" stroke-linecap="round" stroke-width="4"/>
+    </g>
+    <g transform="matrix(-1, 0, 0, -1, 15.03, 14.63)" filter="url(#Line_2)">
+      <line id="Line_2-2" data-name="Line 2" y1="2.486" x2="1.959" transform="translate(15.03 14.63) rotate(180)" fill="none" stroke="#ff4991" stroke-linecap="round" stroke-width="3"/>
+    </g>
+    <g transform="matrix(-1, 0, 0, -1, 15.03, 14.63)" filter="url(#Line_3)">
+      <line id="Line_3-2" data-name="Line 3" x1="1.959" y1="2.486" transform="translate(13.07 14.63) rotate(180)" fill="none" stroke="#ff4991" stroke-linecap="round" stroke-width="3"/>
+    </g>
+  </g>
+</svg>
