@@ -199,6 +199,7 @@ stock_dataset['Recommender'] = stock_dataset.apply(lambda row: recommender(row),
 stock_dataset.drop(['RSI Indicator', 'SO Indicator', 'Bollinger Indicator', 'Adj Close'], axis = 1, inplace=True)
 
 
+pred_dataset = stock_dataset [['Recommender']].copy()
 
 #Encoding Categorical Variables
 signal_dict = {'Hold': 0, 'Sell': 1, 'Buy': 2}
@@ -371,6 +372,14 @@ if st.checkbox("Classifier Model Performance"):
   #F1 Score
   f1 = f1_score(y_test, y_pred,average='macro')
   st.write("F1 Score: ", recall)
+  
+  
+
+#   signal_dict_2 = {0: 'Hold',1: 'Sell', 2: 'Buy'}
+#   pred_dataset['Recommender'] = pred_dataset['Recommender'].map(signal_dict)
+
+
+  st.write(pred_dataset)
 
     
 

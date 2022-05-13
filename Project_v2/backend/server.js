@@ -148,28 +148,16 @@ app.post("/remove_recent_reminder", (req, res) => {
 
 // counted total income & expense
 app.get("/total_income", (req, res) => {
-Transactions.distinct( 'amount', { 'trans_category': { '$eq': 'Income' } } ).then((data) => {
-    let trans_total = get_sum(data);
-    Budget.distinct( 'amount', { 'budget_category': { '$eq': 'Income' } } ).then((data) => {
-        let bud_total = get_sum(data);
-        Reminder.distinct( 'amount', { 'reminder_category': { '$eq': 'Income' } } ).then((data) => {
-            let rem_total = get_sum(data);
-            res.json(trans_total+bud_total+rem_total);
-        });
+    Transactions.distinct( 'amount', { 'trans_category': { '$eq': 'Income' } } ).then((data) => {
+        let total_income = get_sum(data);
+        res.json(total_income).status(200);
     });
-});
 });
 app.get("/total_expense", (req, res) => {
-Transactions.distinct( 'amount', { 'trans_category': { '$ne': 'Income' } } ).then((data) => {
-    let trans_total = get_sum(data);
-    Budget.distinct( 'amount', { 'budget_category': { '$ne': 'Income' } } ).then((data) => {
-        let bud_total = get_sum(data);
-        Reminder.distinct( 'amount', { 'reminder_category': { '$ne': 'Income' } } ).then((data) => {
-            let rem_total = get_sum(data);
-            res.json(trans_total+bud_total+rem_total);
-        });
+    Transactions.distinct( 'amount', { 'trans_category': { '$ne': 'Income' } } ).then((data) => {
+        let total_expense = get_sum(data);
+        res.json(total_expense).status(200);
     });
-});
 });
 
 
